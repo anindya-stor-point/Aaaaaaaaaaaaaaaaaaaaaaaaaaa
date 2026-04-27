@@ -1,0 +1,5 @@
+{
+  "name": "OTG Screen Mirror Android",
+  "description": "Android app project to share screen live from one phone to another using an OTG cable without WiFi or Bluetooth.",
+  "requestFramePermissions": []
+}

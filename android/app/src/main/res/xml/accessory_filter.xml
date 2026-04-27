@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define the accessory you want to connect to -->
+    <usb-accessory model="OTGMirror" manufacturer="Android" version="1.0" />
+</resources>

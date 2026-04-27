@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Filter for Android devices (usually class 255/subclass 66/protocol 1 for ADB, but we catch generic ones) -->
+    <!-- You might need to adjust class, subclass and protocol depending on your Android version / OEM -->
+    <usb-device class="255" subclass="66" protocol="1" />
+    <usb-device class="255" subclass="66" protocol="3" />
+</resources>
