@@ -3,17 +3,30 @@ package com.otg.screenmirror
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.hardware.usb.UsbManager
 import android.media.projection.MediaProjectionManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mediaProjectionManager: MediaProjectionManager
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            // Permission is granted.
+        } else {
+            Toast.makeText(this, "Notification permission is required for the foreground service", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private val screenCaptureIntentLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -34,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        checkAndRequestPermissions()
+
         mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
         findViewById<Button>(R.id.btnStartSender).setOnClickListener {
@@ -53,5 +68,24 @@ class MainActivity : AppCompatActivity() {
     private fun startReceiver() {
         val intent = Intent(this, ReceiverActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun checkAndRequestPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    // You can use the API that requires the permission.
+                }
+                else -> {
+                    // You can directly ask for the permission.
+                    requestPermissionLauncher.launch(
+                        android.Manifest.permission.POST_NOTIFICATIONS
+                    )
+                }
+            }
+        }
     }
 }

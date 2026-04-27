@@ -44,17 +44,18 @@ export default function App() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-neutral-800">
-          <h2 className="text-xl font-semibold mb-4 text-white">প্রজেক্টে যা যা যুক্ত করা হয়েছে:</h2>
+          <h2 className="text-xl font-semibold mb-4 text-white">প্রজেক্টে যা যা আপডেট করা হয়েছে:</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-neutral-300">
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> <code>AndroidManifest.xml</code> (Perms)</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> USB Host API Connection</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Android Open Accessory (AOA)</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> MediaProjection (Screen Capture)</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> MediaCodec (H.264 Encode/Decode)</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Foreground Service</li>
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_#3b82f6]"></span> <strong>GitHub Action (.yml) for APK Build</strong></li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> <code>POST_NOTIFICATIONS</code> Runtime Permission</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Foreground Service Crash Fixed (Android 13+)</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Receiver Export Rule Updated</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Auto Permission Prompt at App Launch</li>
           </ul>
         </div>
+        
+        <p className="text-neutral-400 text-sm mt-6 text-center">
+        * নোট: Android এর সিকিউরিটি পলিসি অনুযায়ী <strong>Screen Record (MediaProjection)</strong> পারমিশন স্ক্রিন কাস্ট করার আগে প্রতিবার দিতে হবে। বাকি পারমিশনগুলো (Notification, USB) একবার দিলে আর চাইবে না (আনইনস্টল করার আগ পর্যন্ত)।
+        </p>
       </div>
     </div>
   );
