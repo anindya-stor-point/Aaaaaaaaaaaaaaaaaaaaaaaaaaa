@@ -52,6 +52,7 @@ export default function App() {
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> MediaProjection (Screen Capture)</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> MediaCodec (H.264 Encode/Decode)</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-neutral-500 rounded-full"></span> Foreground Service</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_#3b82f6]"></span> <strong>GitHub Action (.yml) for APK Build</strong></li>
           </ul>
         </div>
       </div>
